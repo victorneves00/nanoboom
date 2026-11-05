@@ -7,8 +7,7 @@
     <title>Nanoboom - Eletrônicos</title>
 </head>
 <body>
-    <div class="faixa-promo">Ganhe 10% de desconto na sua primeira compra</div>
-
+    
     <header class="topo" id="inicio">
         <div class="logo">
             <span class="logo-icone">💥</span>
@@ -69,19 +68,24 @@
     </section>
 
     <footer class="rodape">
-        <p>&copy; 2026 Nanoboom - Uma explosão em tecnologia para você</p>
-        <p class="rodape-links"><a href="#inicio">Home</a> · <a href="#sobre">Sobre</a> · <a href="#produtos">Produtos</a> · <a href="#contato">Contato</a></p>
+        <p>Nanoboom - Uma explosão em tecnologia para você</p>
+        
     </footer>
 
-    <!-- Chatbot Nano -->
+    
     <button id="chat-toggle" aria-label="Abrir chat">💬</button>
-    <div id="chat-box" hidden>
-        <div class="chat-topo">Nano · Assistente Nanoboom <button id="chat-fechar" aria-label="Fechar">✕</button></div>
-        <div id="chat-msgs"></div>
-        <form id="chat-form">
-            <input type="text" id="chat-input" placeholder="Pergunte sobre a loja..." autocomplete="off" required>
-            <button type="submit">Enviar</button>
-        </form>
+    <div id="chat" class="chat-widget hidden">
+        <div class="chat-header">
+            <p>Nano · Atendimento Nanoboom</p>
+            <button id="fechar" aria-label="Fechar chat">✕</button>
+        </div>
+        <div id="chat-box" class="chat-box">
+            <div class="bot">Olá! 👋 Eu sou a Nano, atendente virtual da Nanoboom. Posso ajudar com produtos, entrega e pedidos!</div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="input" placeholder="Digite sua mensagem..." autocomplete="off">
+            <button id="enviar">Enviar</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
