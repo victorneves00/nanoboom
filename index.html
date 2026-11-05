@@ -7,45 +7,82 @@
     <title>Nanoboom - Eletrônicos</title>
 </head>
 <body>
-
-    <div class="faixa-promo">
-        Ganhe 10% de desconto na sua primeira compra
-    </div>
+    <div class="faixa-promo">Ganhe 10% de desconto na sua primeira compra</div>
 
     <header class="topo" id="inicio">
-        <div>
-            <h1>NANOBOOM</h1>
-            <p>Uma Explosão em Tecnologia</p>
+        <div class="logo">
+            <span class="logo-icone">💥</span>
+            <div>
+                <h1>NANOBOOM</h1>
+                <p>Uma Explosão em Tecnologia</p>
+            </div>
         </div>
         <nav>
             <a href="#inicio">Home</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#produtos">Produtos</a>
+            <a href="#contato">Contato</a>
         </nav>
     </header>
 
     <section class="banner">
         <h2>As melhores ofertas em eletrônicos</h2>
         <p>Aqui você encontra as melhores ofertas</p>
+        <a href="#produtos" class="botao-banner">Ver produtos</a>
     </section>
 
     <section class="beneficios">
-        
-        </div>
-        <div class="beneficio">
-            <p>Entregas rápidas para todo o Brasil</p>
-        </div>
-        <div class="beneficio">
-            <p>Site 100% seguro</p>
-        </div>
+        <div class="beneficio"><div class="circulo">🚚</div><p>Entregas rápidas para todo o Brasil</p></div>
+        <div class="beneficio"><div class="circulo">🔒</div><p>Site 100% seguro</p></div>
+        <div class="beneficio"><div class="circulo">💬</div><p>Suporte com a assistente Nano</p></div>
     </section>
 
-    <main>
+    <section class="sobre" id="sobre">
+        <h2 class="titulo-secao">Sobre a Nanoboom</h2>
+        <p>A Nanoboom é uma loja virtual fictícia de eletrônicos criada para jovens e adultos que buscam tecnologia com bom preço e entrega rápida. Nossa missão é levar inovação até você, com atendimento próximo e compra segura.</p>
+        <p><strong>Público-alvo:</strong> estudantes, profissionais de tecnologia e entusiastas de eletrônicos.</p>
+    </section>
+
+    <main id="produtos">
         <h2 class="titulo-secao">Nossos produtos</h2>
-        <div id="lista-produtos" class="lista"></div>
+        <div id="lista-produtos" class="lista"><p>Carregando produtos...</p></div>
     </main>
 
+    <section class="contato" id="contato">
+        <h2 class="titulo-secao">Fale com a gente</h2>
+        <form id="form-contato" novalidate>
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" required>
+            <label for="email">E-mail</label>
+            <input type="email" id="email" required>
+            <label for="assunto">Assunto</label>
+            <select id="assunto">
+                <option>Dúvida sobre produto</option>
+                <option>Pedido / entrega</option>
+                <option>Sugestão</option>
+            </select>
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" rows="4" required></textarea>
+            <button type="submit" class="botao-comprar">ENVIAR</button>
+            <p id="retorno-form" role="status"></p>
+        </form>
+    </section>
+
     <footer class="rodape">
-        <p>Nanoboom - Uma explosão em tecnologia para você</p>
+        <p>&copy; 2026 Nanoboom - Uma explosão em tecnologia para você</p>
+        <p class="rodape-links"><a href="#inicio">Home</a> · <a href="#sobre">Sobre</a> · <a href="#produtos">Produtos</a> · <a href="#contato">Contato</a></p>
     </footer>
+
+    <!-- Chatbot Nano -->
+    <button id="chat-toggle" aria-label="Abrir chat">💬</button>
+    <div id="chat-box" hidden>
+        <div class="chat-topo">Nano · Assistente Nanoboom <button id="chat-fechar" aria-label="Fechar">✕</button></div>
+        <div id="chat-msgs"></div>
+        <form id="chat-form">
+            <input type="text" id="chat-input" placeholder="Pergunte sobre a loja..." autocomplete="off" required>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
 
     <script src="script.js"></script>
 </body>
