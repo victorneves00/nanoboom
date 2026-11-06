@@ -1,62 +1,346 @@
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; }
-html { scroll-behavior: smooth; }
-body { background-color: #f3f4fb; }
+* { margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: Arial, Helvetica, sans-serif; 
+}
 
-.faixa-promo { background-color: #f97316; color: #fff; text-align: center; padding: 8px; font-weight: bold; }
+html { 
+    scroll-behavior: smooth; 
+}
 
-.topo { background-color: #4c1d95; color: #fff; display: flex; justify-content: space-between; align-items: center; padding: 20px 30px; flex-wrap: wrap; gap: 10px; position: sticky; top: 0; z-index: 10; }
-.logo { display: flex; align-items: center; gap: 12px; }
-.logo-icone { font-size: 34px; }
-.topo nav a { color: #fff; text-decoration: none; font-weight: bold; margin-left: 20px; }
-.topo nav a:hover { color: #f97316; }
+body { background-color: #f3f4fb; 
+}
 
-.banner { background-color: #1d4ed8; color: #fff; text-align: center; padding: 50px 20px; }
-.banner h2 { margin-bottom: 10px; }
-.botao-banner { display: inline-block; margin-top: 18px; background: #f97316; color: #fff; padding: 10px 22px; border-radius: 5px; text-decoration: none; font-weight: bold; }
+.faixa-promo { 
+    background-color: #f97316; 
+    color: #fff; 
+    text-align: center; 
+    padding: 8px; 
+    font-weight: bold; 
+}
 
-.beneficios { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; background-color: #fff; padding: 25px; }
-.beneficio { display: flex; flex-direction: column; align-items: center; text-align: center; width: 200px; }
-.circulo { width: 60px; height: 60px; border-radius: 50%; background-color: #4c1d95; color: #fff; font-size: 26px; display: flex; justify-content: center; align-items: center; margin-bottom: 10px; }
+.topo { 
+    background-color: #4c1d95; 
+    color: #fff; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 20px 30px; 
+    flex-wrap: wrap; gap: 10px; 
+    position: sticky; 
+    top: 0; 
+    z-index: 10; 
+}
 
-.sobre { max-width: 800px; margin: 0 auto; padding: 40px 30px 10px; text-align: center; line-height: 1.6; }
-.sobre p { margin-bottom: 12px; }
+.logo {
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+}
 
-main { padding: 30px; scroll-margin-top: 90px; }
-section[id], main[id] { scroll-margin-top: 90px; }
-.titulo-secao { text-align: center; color: #4c1d95; margin-bottom: 20px; }
+.logo-icone { 
+    font-size: 34px; 
+}
 
-.lista { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-.card { width: 240px; background-color: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,.1); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: space-between; }
-.card img { width: 150px; height: 150px; object-fit: contain; }
-.card h3 { font-size: 15px; margin: 10px 0; }
-.preco { font-size: 20px; font-weight: bold; color: #4c1d95; }
-.avaliacoes { color: #666; font-size: 14px; margin: 5px 0 10px; }
-.botao-comprar { background-color: #4c1d95; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; }
-.botao-comprar:hover { background-color: #1d4ed8; }
+.topo nav a { 
+    color: #fff; 
+    text-decoration: none; 
+    font-weight: bold; 
+    margin-left: 20px; 
+}
 
-.contato { padding: 30px; }
-#form-contato { max-width: 500px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,.1); display: flex; flex-direction: column; gap: 8px; }
-#form-contato input, #form-contato select, #form-contato textarea { padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 15px; }
-#retorno-form { font-weight: bold; margin-top: 6px; }
-#retorno-form.ok { color: #2e7d32; }
-#retorno-form.erro { color: #c62828; }
+.topo nav a:hover { 
+    color: #f97316; 
+}
 
-.rodape { background-color: #2e1065; color: #fff; text-align: center; padding: 20px; }
-.rodape a { color: #fff; }
-.rodape-links { margin-top: 8px; font-size: 14px; }
+.banner { 
+    background-color: #1d4ed8;
+    color: #fff; 
+    text-align: center; 
+    padding: 50px 20px;
+}
 
-#chat-toggle { position: fixed; right: 20px; bottom: 20px; width: 56px; height: 56px; border-radius: 50%; border: none; background: #f97316; color: #fff; font-size: 26px; cursor: pointer; box-shadow: 0 3px 10px rgba(0,0,0,.3); z-index: 20; }
-#chat-box { position: fixed; right: 20px; bottom: 90px; width: 320px; max-width: calc(100vw - 40px); height: 420px; background: #fff; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,.3); display: flex; flex-direction: column; overflow: hidden; z-index: 20; }
-#chat-box[hidden] { display: none; }
-.chat-topo { background: #4c1d95; color: #fff; padding: 12px; font-weight: bold; display: flex; justify-content: space-between; }
-.chat-topo button { background: none; border: none; color: #fff; cursor: pointer; }
-#chat-msgs { flex: 1; overflow-y: auto; padding: 10px; display: flex; flex-direction: column; gap: 8px; }
-.msg { padding: 8px 12px; border-radius: 12px; max-width: 85%; font-size: 14px; line-height: 1.4; white-space: pre-wrap; }
-.msg.bot { background: #ede9fe; align-self: flex-start; }
-.msg.user { background: #1d4ed8; color: #fff; align-self: flex-end; }
-#chat-form { display: flex; border-top: 1px solid #ddd; }
-#chat-input { flex: 1; border: none; padding: 12px; outline: none; }
-#chat-form button { border: none; background: #4c1d95; color: #fff; padding: 0 16px; cursor: pointer; }
+.banner h2 { 
+    margin-bottom: 10px; 
+}
+
+.botao-banner { 
+    display: inline-block; 
+    margin-top: 18px; 
+    background: #f97316; 
+    color: #fff; 
+    padding: 10px 22px; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    font-weight: bold; 
+}
+
+.beneficios { 
+    display: flex; 
+    justify-content: space-around; 
+    flex-wrap: wrap; 
+    gap: 20px; 
+    background-color: #fff; 
+    padding: 25px; 
+}
+
+.beneficio { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    width: 200px; 
+}
+
+.circulo { 
+    width: 60px; 
+    height: 60px; 
+    border-radius: 50%; 
+    background-color: #4c1d95; 
+    color: #fff; 
+    font-size: 26px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin-bottom: 10px; 
+}
+
+.sobre { 
+    max-width: 800px; 
+    margin: 0 auto; 
+    padding: 40px 30px 10px; 
+    text-align: center; 
+    line-height: 1.6; 
+}
+
+.sobre p { 
+    margin-bottom: 12px; 
+}
+
+main { 
+    padding: 30px; 
+    scroll-margin-top: 90px; 
+}
+
+section[id], main[id] { 
+    scroll-margin-top: 90px; 
+}
+
+.titulo-secao { 
+    text-align: center; 
+    color: #4c1d95; 
+    margin-bottom: 20px; 
+}
+
+.lista { 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 20px; 
+}
+
+.card { 
+    width: 240px; 
+    background-color: #fff; 
+    padding: 15px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 6px rgba(0,0,0,.1); 
+    text-align: center; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: space-between; 
+}
+
+.card img { 
+    width: 150px; 
+    height: 150px; 
+    object-fit: contain; 
+}
+
+.card h3 { 
+    font-size: 15px; 
+    margin: 10px 0; 
+}
+
+.preco { 
+    font-size: 20px; 
+    font-weight: bold; 
+    color: #4c1d95; 
+}
+
+.avaliacoes { 
+    color: #666; 
+    font-size: 14px; 
+    margin: 5px 0 10px; 
+}
+
+.botao-comprar { 
+    background-color: #4c1d95; 
+    color: #fff; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    font-weight: bold; 
+    cursor: pointer; 
+}
+
+.botao-comprar:hover { 
+    background-color: #1d4ed8; 
+}
+
+.contato {
+    padding: 30px; 
+}
+
+#form-contato { 
+    max-width: 500px; 
+    margin: 0 auto; 
+    background: #fff; 
+    padding: 25px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 6px rgba(0,0,0,.1); 
+    display: flex; 
+    flex-direction: column; 
+    gap: 8px; 
+}
+
+#form-contato input, #form-contato select, #form-contato textarea { 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    font-size: 15px; 
+}
+
+#retorno-form { 
+    font-weight: bold; 
+    margin-top: 6px; 
+}
+
+#retorno-form.ok { 
+    color: #2e7d32; 
+}
+
+#retorno-form.erro { 
+    color: #c62828; 
+}
+
+.rodape { 
+    background-color: #2e1065; 
+    color: #fff; 
+    text-align: center; 
+    padding: 20px; 
+}
+
+.rodape a { 
+    color: #fff; 
+}
+
+.rodape-links { 
+    margin-top: 8px; 
+    font-size: 14px; 
+}
+
+#chat-toggle { 
+    position: fixed; 
+    right: 20px; 
+    bottom: 20px; 
+    width: 56px; 
+    height: 56px; 
+    border-radius: 50%; 
+    border: none; 
+    background: #f97316; 
+    color: #fff; 
+    font-size: 26px; 
+    cursor: pointer; 
+    box-shadow: 0 3px 10px rgba(0,0,0,.3); 
+    z-index: 20; 
+}
+
+#chat-box { 
+    position: fixed; 
+    right: 20px; 
+    bottom: 90px; 
+    width: 320px; 
+    max-width: calc(100vw - 40px); 
+    height: 420px; 
+    background: #fff; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 16px rgba(0,0,0,.3); 
+    display: flex; 
+    flex-direction: column; 
+    overflow: hidden; 
+    z-index: 20; 
+}
+
+#chat-box[hidden] { 
+    display: none; 
+}
+
+.chat-topo { 
+    background: #4c1d95; 
+    color: #fff; 
+    padding: 12px; 
+    font-weight: bold; 
+    display: flex; 
+    justify-content: space-between; 
+}
+
+.chat-topo button { 
+    background: none; 
+    border: none; 
+    color: #fff; 
+    cursor: pointer; 
+}
+
+#chat-msgs { 
+    flex: 1; 
+    overflow-y: auto; 
+    padding: 10px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 8px; 
+}
+
+.msg { 
+    padding: 8px 12px; 
+    border-radius: 12px; 
+    max-width: 85%; 
+    font-size: 14px; 
+    line-height: 1.4; 
+    white-space: pre-wrap; 
+}
+
+.msg.bot { 
+    background: #ede9fe; 
+    align-self: flex-start; 
+}
+
+.msg.user { 
+    background: #1d4ed8; 
+    color: #fff; 
+    align-self: flex-end; 
+}
+
+#chat-form { 
+    display: flex; 
+    border-top: 1px solid #ddd; 
+}
+
+#chat-input { 
+    flex: 1; 
+    border: none; 
+    padding: 12px; 
+    outline: none; 
+}
+
+#chat-form button { 
+    border: none; 
+    background: #4c1d95; 
+    color: #fff; 
+    padding: 0 16px; 
+    cursor: pointer; 
+}
 
 @media (max-width: 600px) {
     .topo { padding: 15px; justify-content: center; }
