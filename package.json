@@ -1,0 +1,15 @@
+{
+  "name": "nanoboom",
+  "version": "1.0.0",
+  "description": "Site de e-commerce de eletrônicos com atendente virtual de IA (AV3 - Desenvolvimento Web para IA)",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@google/genai": "^1.0.0",
+    "dotenv": "^17.4.2",
+    "express": "^4.22.3"
+  }
+}
