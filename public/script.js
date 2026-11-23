@@ -61,7 +61,7 @@ let input = document.getElementById("input");
 let chatBox = document.getElementById("chat-box");
 
 // Código único deste visitante: o servidor usa para lembrar a conversa.
-const sessionId = crypto.randomUUID();
+const sessionId = Date.now() + "-" + Math.random().toString(36).slice(2); //uso do bot no mobile
 
 botao.addEventListener("click", function () {
     chat.classList.toggle("hidden");
