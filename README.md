@@ -61,6 +61,35 @@ npm start
 
 5. Aguarde a mensagem de confirmação no terminal e acesse o site no navegador pelo endereço http://localhost:3000.
 
+### Acesso pelo celular
+
+Para testar o site em um celular, o aparelho e o computador devem estar conectados à mesma rede Wi-Fi, e o servidor deve estar em execução.
+
+1. No computador, abra o Prompt de Comando e execute o comando abaixo.
+
+```bash
+ipconfig
+```
+
+2. Localize o campo Endereço IPv4 da conexão Wi-Fi. O valor tem formato semelhante a 192.168.1.15.
+3. No navegador do celular, acesse o endereço abaixo, substituindo o IP pelo obtido no passo anterior. Deve-se utilizar http, e não https.
+
+```
+http://192.168.1.15:3000
+```
+
+Caso o site não abra, verificar os pontos a seguir:
+
+- O Firewall do Windows pode bloquear a conexão. Para liberar a porta, execute no Prompt de Comando como administrador o comando abaixo.
+
+```bash
+netsh advfirewall firewall add rule name="Nanoboom 3000" dir=in action=allow protocol=TCP localport=3000
+```
+
+- A rede Wi-Fi do computador deve estar configurada como rede privada.
+- Redes públicas ou institucionais podem isolar os dispositivos entre si. Nesse caso, utilizar outra rede, como o ponto de acesso do próprio celular.
+- O endereço IP pode mudar quando o computador se reconecta à rede. Nesse caso, repetir o comando ipconfig. 
+
 ### Observações
 
 - O site deve ser acessado obrigatoriamente pelo endereço do servidor. Abrir o arquivo index.html diretamente ou utilizar extensões como o Live Server impede o funcionamento do chat, pois a rota /api/chat é fornecida pelo servidor Node.
