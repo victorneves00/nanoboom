@@ -117,7 +117,7 @@ O botão de chat abre a conversa com a Nano, atendente virtual da Nanoboom.
 - Persona: atendente animada, simpática e objetiva, com respostas curtas. A persona, o conhecimento da loja e as regras de comportamento estão definidos no arquivo persona.js.
 - Contexto: a Nano conhece produtos, benefícios e formas de contato, recusa assuntos alheios à loja e não inventa preços ou prazos.
 - Fluxo: o script.js envia a mensagem por fetch para a rota POST /api/chat. O server.js monta a instrução de sistema a partir do persona.js, mantém o histórico da conversa por sessão e consulta o Gemini. A chave de API permanece apenas no servidor.
-- Function calling: quando o cliente informa nome, telefone e o item desejado, a IA aciona a ferramenta registrar_pedido, e o servidor grava o pedido no arquivo pedidos.json.
+- Function calling: o servidor disponibiliza as ferramentas registrar_pedido e listar_pedidos, que gravam e consultam os pedidos no arquivo pedidos.json, e a consulta exige o telefone informado na compra.
 
 ## Estrutura de pastas
 
