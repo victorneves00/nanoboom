@@ -9,11 +9,16 @@ import { PERSONA, CONHECIMENTO, REGRAS } from "./persona.js";
 
 dotenv.config({ quiet: true });
 
+<<<<<<< HEAD
 // ---------- 1) Configurações ----------
+=======
+// 1) Configurações em que o servidor vai rodar
+>>>>>>> 33a30c3968536129c2db1319135db3d5401a861c
 const PORTA = 3000;
 
 // Se der "model not found", troque só esta linha por um nome da lista:
 // https://ai.google.dev/gemini-api/docs/models
+<<<<<<< HEAD
 const MODELOS = [
     "gemini-3.5-flash-lite",
     "gemini-3.5-flash",
@@ -22,6 +27,9 @@ const MODELOS = [
 ];
 
 const ERROS_DE_FALLBACK = [404, 429, 500, 503, 504];
+=======
+const MODELO = "gemini-3.1-flash-lite";
+>>>>>>> 33a30c3968536129c2db1319135db3d5401a861c
 
 if (!process.env.GEMINI_API_KEY) {
   console.warn("\n⚠️  GEMINI_API_KEY não encontrada! Crie o arquivo .env com: GEMINI_API_KEY=sua_chave_aqui\n");
@@ -33,7 +41,11 @@ const app = express();
 app.use(express.json());
 app.use(express.static("public"));
 
+<<<<<<< HEAD
 // ---------- 2) Instrução de sistema (montada a partir do persona.js) ----------
+=======
+// 2) Instrução de sistema (montada a partir do persona.js) 
+>>>>>>> 33a30c3968536129c2db1319135db3d5401a861c
 const INSTRUCAO_DE_SISTEMA = `
 Você é ${PERSONA.nome}, atendente virtual da ${PERSONA.empresa} (${PERSONA.ramo}).
 Seu objetivo: ${PERSONA.objetivo}.
@@ -48,7 +60,11 @@ ${REGRAS.map((regra, i) => `${i + 1}. ${regra}`).join("\n")}
 Escreva em texto simples, sem markdown (não use **, # ou tabelas).
 `;
 
+<<<<<<< HEAD
 // ---------- 3) Histórico das conversas (memória de curto prazo) ----------
+=======
+// 3) Histórico das conversas (memória de curto prazo) 
+>>>>>>> 33a30c3968536129c2db1319135db3d5401a861c
 // Fica na RAM: se o servidor desligar, as conversas somem.
 const historicos = new Map();
 
@@ -57,7 +73,11 @@ function pegarHistorico(sessionId) {
   return historicos.get(sessionId);
 }
 
+<<<<<<< HEAD
 // ---------- 4) Ferramenta: registrar_pedido ----------
+=======
+// 4) Ferramenta: registrar_pedido 
+>>>>>>> 33a30c3968536129c2db1319135db3d5401a861c
 // A IA não salva nada sozinha: ela PEDE a ferramenta e o NOSSO código salva.
 const FERRAMENTAS = [
   {
@@ -73,6 +93,7 @@ const FERRAMENTAS = [
       },
       required: ["nome", "telefone", "pedido"],
     },
+<<<<<<< HEAD
     
   },
     {
@@ -86,11 +107,14 @@ const FERRAMENTAS = [
       },
       required: ["telefone"],
     },
+=======
+>>>>>>> 33a30c3968536129c2db1319135db3d5401a861c
   },
 ];
 
 const ARQUIVO_PEDIDOS = "pedidos.json";
 
+<<<<<<< HEAD
 function lerPedidos() {
   try {
     return JSON.parse(fs.readFileSync(ARQUIVO_PEDIDOS, "utf-8"));
@@ -107,6 +131,16 @@ function soDigitos(texto) {
 function executarFerramenta(chamada) {
   if (chamada.name === "registrar_pedido") {
     const pedidos = lerPedidos();
+=======
+function executarFerramenta(chamada) {
+  if (chamada.name === "registrar_pedido") {
+    let pedidos = [];
+    try {
+      pedidos = JSON.parse(fs.readFileSync(ARQUIVO_PEDIDOS, "utf-8"));
+    } catch (e) {
+      pedidos = [];
+    }
+>>>>>>> 33a30c3968536129c2db1319135db3d5401a861c
 
     const novo = { ...chamada.args, data: new Date().toLocaleString("pt-BR") };
     pedidos.push(novo);
@@ -117,6 +151,7 @@ function executarFerramenta(chamada) {
     return { sucesso: true, numero_do_pedido: pedidos.length };
   }
 
+<<<<<<< HEAD
   if (chamada.name === "listar_pedidos") {
     const telefone = soDigitos(chamada.args.telefone);
 
@@ -163,6 +198,12 @@ async function gerarComFallback(historico) {
 }
 
 // ---------- 5) Rota do chat: POST /api/chat ----------
+=======
+  return { sucesso: false, aviso: `Ferramenta inexistente: ${chamada.name}` };
+}
+
+// 5) Rota do chat: POST /api/chat
+>>>>>>> 33a30c3968536129c2db1319135db3d5401a861c
 app.post("/api/chat", async (req, res) => {
   const { mensagem, sessionId } = req.body;
 
@@ -182,7 +223,18 @@ app.post("/api/chat", async (req, res) => {
 
     // Até 3 voltas: pergunta → (talvez ferramenta) → resposta final.
     for (let volta = 1; volta <= 3; volta++) {
+<<<<<<< HEAD
       const resposta = await gerarComFallback(historico);
+=======
+      const resposta = await ai.models.generateContent({
+        model: MODELO,
+        contents: historico,
+        config: {
+          systemInstruction: INSTRUCAO_DE_SISTEMA,
+          tools: [{ functionDeclarations: FERRAMENTAS }],
+        },
+      });
+>>>>>>> 33a30c3968536129c2db1319135db3d5401a861c
 
       const conteudo = resposta.candidates?.[0]?.content;
       if (conteudo) historico.push(conteudo);
@@ -213,7 +265,11 @@ app.post("/api/chat", async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 // ---------- 6) Ligar o servidor ----------
+=======
+// 6) Ligar o servidor
+>>>>>>> 33a30c3968536129c2db1319135db3d5401a861c
 app.listen(PORTA, () => {
   console.log(`✅ ${PERSONA.empresa} no ar: http://localhost:${PORTA}`);
   console.log(`🤖 Atendente virtual: ${PERSONA.nome}`);
